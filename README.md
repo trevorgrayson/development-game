@@ -1,6 +1,8 @@
 # development
 
-This starts with a single commit, and is the worst hello world game ever.
+Welcome to `The Game.`
+
+It starts with a single commit; the worst hello world game ever.
 But if you can program, or you can hack it, you can make it a little bit better.
 
 The game itself isn't important at this point, but it should be fun.
