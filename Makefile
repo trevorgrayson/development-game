@@ -4,6 +4,8 @@ DEPDIR=".venv"
 play: 
 	@echo "What a terrible night for a curse."
 	@$(PYTHON) -m play
+	@git commit players.bin -m "SCORE!"
+	@git push origin # fishing
 	
 compile: $(DEPDIR)
 $(DEPDIR): requirements.txt
