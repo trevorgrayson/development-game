@@ -3,19 +3,17 @@
 This starts with a single commit, and is the worst hello world game ever.
 But if you can program, or you can hack it, you can make it a little bit better.
 
-The game itself isn't important, but you being able to increment on it and 
-contribute back to the codebase is.  The most important thing is to make it
-as fun as possible, for the most people, if you want it to be.
+The game itself isn't important at this point, but it should be fun.
+You being able to increment on it and contribute back to the codebase is
+something to do for its own sake.  Make it as fun as possible, for the most people, 
+if you want it to be.
 
 Good luck.
 
-## A web server exists...
+## Check the Makefile.
 
-It represents me. Every time a request is made to it, I get a point. Is this fair?
-I don't know, but it seems like I should win at this point.  My advantage.
+If you're a developer, you have `make` installed already, even if you don't know it.
 
-It isn't necessarily in your benefit to be a good programmer.  It's more important
-that you can convince people that altering the game in your way is the best way.
-Or maybe you can get away changing it without their permission.
+Run the game by typing `make play` or `make`.
 
-Your turn.
+Commit to save progress.
