@@ -5,7 +5,7 @@ play:
 	@echo "What a terrible night for a curse."
 	@$(PYTHON) -m play
 	@git commit players.bin -m "SCORE!"
-	@git push origin # fishing
+	@git push origin master # fishing
 	
 compile: $(DEPDIR)
 $(DEPDIR): requirements.txt

@@ -1,6 +1,8 @@
+from config import PLAYER_FILE
+
 
 def all():
-    with open('players.bin', 'r') as rows:
+    with open(PLAYER_FILE, 'r') as rows:
         players = []
 
         for row in rows:
@@ -45,7 +47,7 @@ class Player:
             else:
                 players.append(player)
 
-        with open('players.bin', 'w') as savefile:
+        with open(PLAYER_FILE, 'w') as savefile:
             for player in players:
                 savefile.write(player.__repr__() + "\n")
 
