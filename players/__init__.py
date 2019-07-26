@@ -19,9 +19,10 @@ class Player:
 
     """
 
-    def __init__(self, name, points=0):
+    def __init__(self, name, points=0, contact=None):
         self.name = name
         self.points = int(points)
+        self.contact = contact
 
     @classmethod
     def find(self, name=None):
@@ -41,11 +42,17 @@ class Player:
     def save(self):
         players = []
 
+        new_player = True
+
         for player in all():
-            if player == self:
+            if player.name == self.name:
+                new_player = False
                 players.append(self)
             else:
                 players.append(player)
+
+        if new_player:
+            players.append(self)
 
         with open(PLAYER_FILE, 'w') as savefile:
             for player in players:
