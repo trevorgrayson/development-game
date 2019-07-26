@@ -59,7 +59,7 @@ class Player:
                 savefile.write(player.__repr__() + "\n")
 
     def __str__(self):
-        return "<Player {} score={}>".format(self.name, self.points)
+        return "{}+{}".format(self.name, self.points)
 
 
     def __repr__(self):
