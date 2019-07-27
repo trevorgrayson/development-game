@@ -14,10 +14,10 @@ $(DEPDIR): requirements.txt
 	$(PYTHON) -m pip install -t $(DEPDIR) -r requirements.txt
 
 terminal: 
-	$(PYTHON) -m terminal
+	@$(PYTHON) -m terminal
 
-console: compile
-	$(PYTHON) -m console
+console: 
+	@$(PYTHON) -m console
 
 clean:
 	rm -rf $(DEPDIR)

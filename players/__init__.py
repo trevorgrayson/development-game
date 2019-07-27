@@ -14,9 +14,7 @@ def all():
 
 class Player:
     """
-
     >>> Player(0)
-
     """
 
     def __init__(self, name, points=0, contact=None):
