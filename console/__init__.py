@@ -1,19 +1,18 @@
 from players import Player
 
 
-def challenge():
-    handle = input('login: ')
+def challenge(io):
+    handle = io.prompt('login: ').strip()
 
     player = Player.find(handle)
 
     if player is None:
         player = Player(handle)
 
-        print("Hello new jack. We will need a way to identify you.")
-        phrase = input("Phone Number, email, or passphrase: ")
+        io.say("Hello new jack. We will need a way to identify you.")
+        phrase = io.prompt("Phone Number, email, or passphrase: ")
 
         player.save()
-        print("Welcome {}.".format(player.name))
+        io.say("Welcome {}.".format(player.name))
     else: 
-        print("Welcome back {}.".format(player.name))
-        
+        io.say("Welcome back {}.".format(player.name))
