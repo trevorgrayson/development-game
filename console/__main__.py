@@ -9,4 +9,5 @@ class IO:
         return input(msg)
 
 
-challenge(IO())
+while(True):
+		challenge(IO())

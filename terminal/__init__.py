@@ -1,8 +1,8 @@
 import socket
 from console import challenge
 
-HOST = '127.0.0.1'  # Standard loopback interface address (localhost)
-PORT = 1343        # Port to listen on (non-privileged ports are > 1023)
+HOST = '0.0.0.0'  # anyone can playyyyyyyyyyyyyyy
+PORT = 1337
 
 
 class IO:
@@ -22,14 +22,19 @@ class IO:
 
 
 def server():
-		with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-				s.bind((HOST, PORT))
-				s.listen()
-				print('listening')
-				conn, addr = s.accept()
-				with conn:
-						io = IO(conn)
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        s.bind((HOST, PORT))
+        s.listen()
+        print('listening')
+        while(True):
+            conn, addr = s.accept()
 
-						print('Connected by', addr)
+            with conn:
+                io = IO(conn)
 
-						challenge(io)
+                print('Connected by', addr)
+
+                try:
+                    challenge(io)
+                except Exception as err:
+                    print(err)
