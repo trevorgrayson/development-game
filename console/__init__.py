@@ -2,6 +2,9 @@ import os
 from players import Player
 from story import story
 from messenger import Messenger
+from games import get_game
+from curses import wrapper
+import curse
 
 COOKIE = os.path.join(os.environ['HOME'], ".dgame")
 
@@ -33,7 +36,13 @@ def challenge(io):
         io.say("Welcome back {}.".format(player.name))
 
     io.say('')
-    story(player, io)
+    # story(player, io)
+    # io.say('Would you like to play a game?')
+    # io.say('1. Rampart')
+    # io.say('2. Global Thermal Nuclear War')
+    # game_num = io.ask(':')
+    # game = get_game(game_num)
+    # wrapper(curse.main)
 
     while(True):
         message = io.ask('>')

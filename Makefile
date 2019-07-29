@@ -19,9 +19,12 @@ terminal:
 console: 
 	@$(PYTHON) -m console
 
+curse:
+	@$(PYTHON) -m curse $(GAME)
+
 clean:
 	rm -rf $(DEPDIR)
 	find . -name "*.pyc" -delete
 	find . -name "*.sw*" -delete
 
-.PHONY: play console terminal
+.PHONY: play console terminal curse
