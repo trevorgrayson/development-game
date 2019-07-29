@@ -2,7 +2,7 @@ import os
 from players import Player
 from story import story
 from messenger import Messenger
-from games import get_game
+from games import play_game, GAMES
 from curses import wrapper
 import curse
 
@@ -37,14 +37,21 @@ def challenge(io):
 
     io.say('')
     # story(player, io)
-    # io.say('Would you like to play a game?')
-    # io.say('1. Rampart')
-    # io.say('2. Global Thermal Nuclear War')
-    # game_num = io.ask(':')
-    # game = get_game(game_num)
-    # wrapper(curse.main)
+    io.say('would you like to play a game?')
+
+    # list games
+    for idx, game in enumerate(GAMES):
+        name = game.TITLE
+        io.say(f"{idx}. {name}")
+
+    game_num = int(io.ask('#'))
+
+    play_game(game_num)
+
 
     while(True):
+        # sendkeys to game
+        # sendkeys to messenger
         message = io.ask('>')
         message = f"{player} says: {message}."
         Messenger.send(message, io)

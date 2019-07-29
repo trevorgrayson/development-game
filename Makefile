@@ -11,15 +11,16 @@ play:
 	
 compile: $(DEPDIR)
 $(DEPDIR): requirements.txt
+	mkdir -p logs
 	$(PYTHON) -m pip install -t $(DEPDIR) -r requirements.txt
 
-terminal: 
+terminal: compile
 	@$(PYTHON) -m terminal
 
-console: 
+console: compile
 	@$(PYTHON) -m console
 
-curse:
+curse: compile
 	@$(PYTHON) -m curse $(GAME)
 
 clean:

@@ -24,6 +24,8 @@ class RampartPlayer(BoardPlayer):
 
 
 class Rampart(NCurses):
+    TITLE = 'rampart'
+
     width = 100
     height = 20
 
@@ -38,7 +40,7 @@ class Rampart(NCurses):
             self.map.append([BLANK_SQR] * self.width)
 
 
-    def draw(self):
+    def tick(self):
         self.draw_frame()
         self.draw_map()
         self.draw_players()
@@ -48,10 +50,10 @@ class Rampart(NCurses):
         self.map[point[0]][point[1]] = value
 
 
-    def cursor_build(self, player):
+    def player_action(self, player):
         piece = (
-          '▓▓▓',
-          '▓'
+          '▒▒▒',
+          '▒'
         )
 
         loc = player.cursor
@@ -60,7 +62,7 @@ class Rampart(NCurses):
 
         for row in piece:
             for val in row:
-                self.mark((loc[0]+y, loc[1]+x), 'x')
+                self.mark((loc[0]+y, loc[1]+x), CURSOR_BLOCKED)
                 x += 1
             y += 1
             x = 0
@@ -68,8 +70,8 @@ class Rampart(NCurses):
 
     def cursor_draw(self, player):
         piece = (
-          '▓▓▓',
-          '▓'
+          '▒▒▒',
+          '▒'
         )
 
         loc = player.cursor

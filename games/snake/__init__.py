@@ -1,3 +1,4 @@
+import numpy as np
 import logging
 
 from curse.base import NCurses
@@ -21,7 +22,10 @@ class SnakePlayer(BoardPlayer):
         """ 
         direction: two digit vector telling which direction will be moved in.
         """
-        self.direction = direction
+        direction = np.array(direction)
+        diff = np.array(self.direction) - direction
+        if not (diff[0] > 1 or diff[1] > 1 or diff[0] < -1 or diff[1] < -1):
+            self.direction = direction
 
 
     def tick(self):
@@ -30,7 +34,7 @@ class SnakePlayer(BoardPlayer):
             self.cursor[1] + self.direction[1]
         )
 
-        self.tail_tip = self.tail.pop(0) # to be killed
+        self.tail_tip = self.tail.pop(0)  # to be killed
         self.tail.append(self.cursor)
 
 
@@ -38,7 +42,7 @@ class Snake(NCurses):
     TITLE = 'snake' 
 
     width = 100
-    height = 20
+    height = 40
 
     def __init__(self, stdscr, offset=(1,1)):
         self.stdscr = stdscr
@@ -54,7 +58,6 @@ class Snake(NCurses):
         for _, player in self.players.items():
             player.tick()
 
-    def draw(self):
         self.draw_frame()
         self.draw_map()
         self.draw_players()

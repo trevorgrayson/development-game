@@ -5,7 +5,7 @@ SPACE_BAR = 32
 
 TICK = 0.1
 
-def main(stdscr, Game):
+def game_runner(stdscr, Game):
     # Make stdscr.getch non-blocking
     stdscr.nodelay(True)
     stdscr.clear()
@@ -23,6 +23,8 @@ def main(stdscr, Game):
 
     # stdscr.clear()
 
+    game.tick()
+
     while True:
         c = stdscr.getch()
 
@@ -36,6 +38,5 @@ def main(stdscr, Game):
         curses.flushinp()
 
         game.tick()
-        game.draw()
 
         time.sleep(TICK)

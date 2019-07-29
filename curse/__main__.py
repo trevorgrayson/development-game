@@ -7,10 +7,14 @@ from games import get_game
 Game = None
 
 try:
-    num = int(1)
-    Game = get_game(num)
-except Exception:
-    print("unknown game: %s" % sys.argv[1])
+    num = int(sys.argv[1])
+    Game = get_game()
+
+except IndexError:
+    print("unknown game, picking 1.")
+    Game = get_game(1)
     # print list of games
+# _curses.error: addwstr() returned ERR  => made the field too big?
+
 
 wrapper(main, Game) 
