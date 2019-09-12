@@ -24,7 +24,7 @@ a terminal.  Download your favorite, any should do.
 
 Recommended Terminal Apps:
 
-* Terminus - OSX, free download. 
+* Terminus - iOS, free download. 
 
 ```
 telnet localhost 1337

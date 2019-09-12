@@ -3,7 +3,7 @@ import threading
 from console import challenge
 
 HOST = '0.0.0.0'  # anyone can playyyyyyyyyyyyyyy
-PORT = 1338
+PORT = 1337
 
 
 class IO:
@@ -49,4 +49,7 @@ def server():
         print("The server is starting...")
         print('listening on: %s.'%PORT)
 
-        accept(sock)
+        try:
+            accept(sock)
+        finally:
+            sock.close()

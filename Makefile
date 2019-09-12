@@ -9,12 +9,13 @@ play:
 	@git commit players.tsv -m "SCORE!"
 	@git push origin master # fishing
 	
-compile: $(DEPDIR)
-$(DEPDIR): requirements.txt
+compile: $(DEPDIR)/updatetime
+$(DEPDIR)/updatetime: requirements.txt
 	mkdir -p logs
 	$(PYTHON) -m pip install -t $(DEPDIR) -r requirements.txt
+	touch $(DEPDIR)/updatetime
 
-terminal: compile
+server: compile
 	@$(PYTHON) -m terminal
 
 console: compile

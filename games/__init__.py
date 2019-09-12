@@ -7,7 +7,7 @@ from curses import wrapper
 
 GAMES = [
     Rampart,
-    Snake
+    Snake,
 ]
 
 def get_game(num):

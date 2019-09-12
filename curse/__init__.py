@@ -35,7 +35,7 @@ def game_runner(stdscr, Game):
         elif c == SPACE_BAR: game.player_action(player)
 
         # Clear out anything else the user has typed in
-        curses.flushinp()
+        # curses.flushinp()
 
         game.tick()
 

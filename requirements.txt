@@ -1,1 +1,2 @@
 numpy
+telnetsrv==0.4

@@ -40,18 +40,19 @@ def challenge(io):
     io.say('would you like to play a game?')
 
     # list games
-    for idx, game in enumerate(GAMES):
-        name = game.TITLE
-        io.say(f"{idx}. {name}")
+    # for idx, game in enumerate(GAMES):
+    #     name = game.TITLE
+    #     io.say(f"{idx}. {name}")
 
-    game_num = int(io.ask('#'))
+    # game_num = int(io.ask('#'))
 
-    play_game(game_num)
+    # play_game(game_num)
 
 
     while(True):
         # sendkeys to game
         # sendkeys to messenger
         message = io.ask('>')
-        message = f"{player} says: {message}."
+        message = f"{player} says: {message}"
         Messenger.send(message, io)
+        io.say('>', end='')
